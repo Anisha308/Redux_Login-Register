@@ -3,8 +3,8 @@ import { authUser,logoutUser,getUserProfile,updateUserProfile,registerUser } fro
 
 const router = express.Router();
 
-router.post('/',authUser)
 router.post("/auth", authUser);
+router.post("/", registerUser);
 router.post("/logout", logoutUser);
 router.route('/profile').get(getUserProfile).put(updateUserProfile)
 
