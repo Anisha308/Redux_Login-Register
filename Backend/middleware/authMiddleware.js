@@ -11,14 +11,11 @@ const protect = asyncHandler(async (req, res, next) => {
        
         try {
           const decoded = jwt.verify(token, process.env.JWT_SECRET);
-          console.log("Token Decoded:", decoded); // Log the decoded token
 
             req.user = await User.findById(decoded.userId).select("-password");
-            console.log("User Found:", req.user); // Log the user object
         next();
         } catch (error) {
-          console.error("Error in protect middleware:", error); // Log any errors
-
+console.log(error);
           res.status(401);
           throw new Error("Not authorized,invalid token");
         }
