@@ -8,6 +8,11 @@ import RegisterScreen from './screens/RegisterScreen.jsx'
 import ProfileScreen from "./screens/ProfileScreen.jsx";
 import PrivateRoute from "./components/PrivateRoute.jsx";
 
+import AdminHomeScreen from "./screens/AdminHomeScreen.jsx";
+import AdminLoginScreen from "./screens/AdminLoginScreen.jsx";
+import AdminRegisterScreen from './screens/adminRegisterScreen.jsx'
+import UsersList from "./screens/UsersList.jsx";
+
 import store from './store.js';
 import {Provider} from 'react-redux'
 import App from './App.jsx'
@@ -23,6 +28,10 @@ const router = createBrowserRouter(
       <Route path="" element={<PrivateRoute />}>
         <Route path="/profile" element={<ProfileScreen />} />
       </Route>
+      <Route path="/admin" element={<AdminHomeScreen />} />
+      <Route path="/admin/login" element={<AdminLoginScreen />} />
+      <Route path="/admin/register" element={<AdminRegisterScreen />} />
+      <Route path="/admin/usersList" element={<UsersList />} />
     </Route>
   )
 );
